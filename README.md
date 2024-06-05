@@ -113,19 +113,6 @@ To identify potential serialization vulnerabilities in the codebase search for:
     
 #### Do not allow user input be directly implemented inside these functions without proper checks.
 
-Pay extra attention to:
-
--   `XMLDecoder` utilized with parameters defined by external users.
-    
--   `XStream`'s `fromXML` method, especially if the XStream version is less than or equal to 1.46, as it is susceptible to serialization issues.
-    
--   `ObjectInputStream` coupled with the `readObject` method.
-    
--   Implementation of methods such as `readObject`, `readObjectNodData`, `readResolve`, or `readExternal`.
-    
--   `ObjectInputStream.readUnshared`.
-    
--   General use of `Serializable`.
 
 How to test for insecure deserialization
 ------------------------
